@@ -4,6 +4,7 @@ import express from "express";
 import { environment } from "./default.js";
 import router from "../routes/index.route.js";
 import pgConnection from "../services/pgConnection.service.js";
+import middleware from "../middlewars/index.middleware.js";
 
 export default class Server{
 
@@ -21,6 +22,8 @@ export default class Server{
     middlewares(){
         /**Configuro para que acepte objeto tipo JSON */
         this.app.use(express.json())
+        /**Activo el uso de middleware personalizado */
+        this.app.use(middleware);
     }
 
     route(){

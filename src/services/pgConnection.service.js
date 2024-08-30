@@ -1,5 +1,6 @@
 /**Conexión con la DB */
 import pgPromise from "pg-promise";
+import { environment } from "../config/default.js";
 
 export default class pgConnection{
      static instance;
@@ -13,7 +14,7 @@ export default class pgConnection{
           const pgp = pgPromise({})
           /**Conexión con base de datos */
           /** driver: // nombre_de_usuario : contraseña @ dirección de DB : puerto/ nombre DB*/
-          this.connection = pgp("postgres://postgres:admin@127.0.0.1:5432/postgres");
+          this.connection = pgp(environment.db_url);
           this.connection.connect()
                .then(obj =>{
                     console.log("Me conecté " + obj.client.serverVersion);

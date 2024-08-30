@@ -1,9 +1,11 @@
 /**Configuración de variables de entorno (EL PUERTO DEL SERVIDOR) */
 import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
 
 export const environment = {
-    port : process.env.PORT
+    port : process.env.PORT,
+    jwt_hash : process.env.JWT_HASH,
+    db_url : process.env.DB_URL
 };

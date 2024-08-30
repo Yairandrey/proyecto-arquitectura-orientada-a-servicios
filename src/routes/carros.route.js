@@ -6,8 +6,9 @@ import carroControler from "../controllers/carro.controler.js";
 const routerCarros = Router()
 
 routerCarros.get("/carros", carroControler.getAllCar);
+routerCarros.get("/carro/:id_carro", carroControler.getCarUni);
 routerCarros.post("/carros", carroControler.postCar);
-routerCarros.delete("/carros");
-routerCarros.put("/carros");
+routerCarros.delete("/carros/:id_carro", carroControler.deleteCar);
+routerCarros.put("/carros/:id_carro", carroControler.putCar);
 
 export default routerCarros;
